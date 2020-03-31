@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'Utility/strings.dart';
+import 'menu_drawer.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Task Manager',
+      title: Strings.mainTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Task Manager Home Page'),
+      home: MyHomePage(title: Strings.taskManagerHomePage),
     );
   }
 }
@@ -29,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: MenuDrawer(),
       body: Center(
         child: Column(
           children: <Widget>[],
@@ -36,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
-        tooltip: 'Add task',
+        tooltip: Strings.addTask,
         child: Icon(Icons.add),
       ),
     );
