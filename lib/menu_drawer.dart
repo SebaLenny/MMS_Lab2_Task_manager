@@ -19,7 +19,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
           trailing: Icon(Icons.person),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AuthorView()));
+              context,
+              MaterialPageRoute(
+                builder: (context) => AuthorView(),
+              ),
+            );
           },
         ),
       ],

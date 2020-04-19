@@ -7,4 +7,12 @@ class Strings {
   static String get addTask => 'Add task';
   static String get mainTitle => 'Task manager';
   static String get taskManagerHomePage => 'Task Manager Home Page';
+  static String get taskDetails => 'Task details';
+  static String get createTaskHeadline => 'Create task';
+  static String get mandatoryField => 'Mandatory field';
+  static String get submit => 'Submit';
+  static String get taskType => 'Task type';
+  static String get dueDate => 'Due date';
+  static String get description => 'Description';
+  static String get title => 'Title';
 }
