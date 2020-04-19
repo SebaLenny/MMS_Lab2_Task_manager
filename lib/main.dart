@@ -43,10 +43,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ScrollController _scrollViewController;
+  List<Widget> _widgetList;
 
   @override
   void initState() {
     _scrollViewController = ScrollController(initialScrollOffset: 0.0);
+    _widgetList = widget.taskController.getTaskWidgetsList(update);
     super.initState();
   }
 
@@ -54,6 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void dispose() {
     _scrollViewController.dispose();
     super.dispose();
+  }
+
+  void update(){
+    setState(() {
+      _widgetList = widget.taskController.getTaskWidgetsList(update);
+    });
   }
 
   @override
@@ -67,14 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(Dimens.smallDistance),
         child: ListView(
             controller: _scrollViewController,
-            children: widget.taskController.getTaskWidgets()),
+            children: _widgetList),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CreateTaskView(widget.taskController),
+              builder: (context) => CreateTaskView(widget.taskController, update),
             ),
           );
         },

@@ -57,11 +57,15 @@ class TaskController {
     ));
   }
 
-  List<Widget> getTaskWidgets() {
+  void removeTask(Task toRemove) {
+    _tasks.remove(toRemove);
+  }
+
+  List<Widget> getTaskWidgetsList(Function update) {
     var toReturn = List<Widget>();
     for (var task in _tasks) {
       toReturn.add(
-        TaskListElement(task),
+        TaskListElement(task, update, this),
       );
     }
     return toReturn;

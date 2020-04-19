@@ -11,7 +11,7 @@ abstract class Task {
     String description,
     DateTime dueDate, [
     status = false,
-  ]){
+  ]) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -20,4 +20,8 @@ abstract class Task {
 
   IconData getIcon();
   String getTaskTypeName();
+
+  void markAsDone() {
+    this.status = true;
+  }
 }

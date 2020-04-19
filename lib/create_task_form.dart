@@ -10,9 +10,10 @@ import 'Utility/strings.dart';
 
 class CreateTaskFrom extends StatefulWidget {
   final TaskController _taskController;
+  final Function _update;
   final TaskData newTask = TaskData();
 
-  CreateTaskFrom(this._taskController);
+  CreateTaskFrom(this._taskController, this._update);
 
   @override
   _CreateTaskFromState createState() => _CreateTaskFromState(_taskController);
@@ -101,6 +102,7 @@ class _CreateTaskFromState extends State<CreateTaskFrom> {
                     _formKey.currentState.save();
                     widget._taskController.addReadyTask(widget.newTask);
                     Navigator.pop(context);
+                    widget._update();
                   }
                 },
                 child: Text(Strings.submit),

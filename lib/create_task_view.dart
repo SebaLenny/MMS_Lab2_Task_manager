@@ -6,8 +6,9 @@ import 'create_task_form.dart';
 
 class CreateTaskView extends StatelessWidget {
   final TaskController _taskController;
+  final Function _update;
 
-  CreateTaskView(this._taskController);
+  CreateTaskView(this._taskController, this._update);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,6 @@ class CreateTaskView extends StatelessWidget {
         appBar: AppBar(
           title: Text(Strings.createTaskHeadline),
         ),
-        body: CreateTaskFrom(_taskController));
+        body: CreateTaskFrom(_taskController, _update));
   }
 }
